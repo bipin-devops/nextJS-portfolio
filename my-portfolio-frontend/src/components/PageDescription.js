@@ -1,4 +1,4 @@
-import styles from './PageDescription.module.css';
+import styles from "./PageDescription.module.scss";
 
 export default function PageDescription({ title, description }) {
   return (
