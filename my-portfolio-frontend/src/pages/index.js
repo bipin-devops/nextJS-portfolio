@@ -32,6 +32,9 @@ export default function Home({ name, summary }) {
               .typeString(`<span>RESTFUL API</span>`)
               .pauseFor(1000)
               .deleteAll()
+              .typeString(`<span>Continous Learning</span>`)
+              .pauseFor(1000)
+              .deleteAll()
               .start();
           }}
         />

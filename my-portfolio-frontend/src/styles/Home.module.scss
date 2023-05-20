@@ -17,7 +17,6 @@
 }
 
 // Typewritter
-
 .Typewriter {
   align-self: center;
 
@@ -28,14 +27,11 @@
   span {
     text-transform: uppercase;
     font-weight: 800;
-    color: #1976d2;
+    color: #cd853f;
     font-family: "Road Rage", cursive;
-    &:nth-child(1) {
-      color: peru;
-    }
 
-    &:nth-child(2) {
-      color: red;
-    }
+    // &:nth-child(2) {
+    //   color: red;
+    // }
   }
 }

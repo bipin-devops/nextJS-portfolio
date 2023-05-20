@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from "yup";
 import {
   Box,
   Chip,
@@ -7,19 +7,19 @@ import {
   MenuItem,
   Select,
   TextField,
-} from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect, useState } from 'react';
+} from "@mui/material";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect, useState } from "react";
 
 export default function ProjectForm({ onSubmit, editValues }) {
   const defaultValues = {
-    name: '',
-    description: '',
-    overview: '',
+    name: "",
+    description: "",
+    overview: "",
     tools: [],
-    imageUrl: '',
-    projectLink: '',
+    imageUrl: "",
+    projectLink: "",
   };
 
   const [skills, setSkills] = useState([]);
@@ -31,10 +31,10 @@ export default function ProjectForm({ onSubmit, editValues }) {
   const fetchSkills = async () => {
     try {
       const response = await fetch(
-        'https://mike-skills-api-123123-default-rtdb.firebaseio.com/skills.json'
+        "https://mike-skills-api-123123-default-rtdb.firebaseio.com/skills.json"
       );
       const data = await response.json();
-      const skillsArray = data.split(',');
+      const skillsArray = data.split(",");
       setSkills(skillsArray);
     } catch (error) {
       console.error(error);
@@ -42,28 +42,28 @@ export default function ProjectForm({ onSubmit, editValues }) {
   };
 
   const projectFormSchema = yup.object().shape({
-    name: yup.string().required('You need to add a name.'),
-    description: yup.string(),
-    overview: yup.string(),
-    tools: yup.array(),
-    imageUrl: yup.string(),
+    name: yup.string().required(),
+    description: yup.string().required(),
+    overview: yup.string().required(),
+    tools: yup.array().required(),
+    imageUrl: yup.string().required(),
     projectLink: yup.string(),
   });
 
   const { control, watch, reset, handleSubmit } = useForm({
     defaultValues: editValues || defaultValues,
     resolver: yupResolver(projectFormSchema),
-    mode: 'all',
+    mode: "all",
   });
 
-  const imageUrlValue = watch('imageUrl');
+  const imageUrlValue = watch("imageUrl");
 
   return (
     <form
       id="project-form"
       onReset={() => reset(defaultValues)}
       onSubmit={handleSubmit(onSubmit)}
-      style={{ padding: '24px' }}
+      style={{ padding: "24px" }}
     >
       <Grid container spacing={4}>
         <Grid item xs={8}>
@@ -186,7 +186,7 @@ export default function ProjectForm({ onSubmit, editValues }) {
             <img
               src={imageUrlValue}
               alt="project-image"
-              style={{ width: '100%' }}
+              style={{ width: "100%" }}
             />
           </Grid>
         )}
