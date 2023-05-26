@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer>Made by Bipin</footer>;
+  return <footer>Proudly Made by Bipin</footer>;
 }
