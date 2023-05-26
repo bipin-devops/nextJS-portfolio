@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { Avatar, Box, Button } from '@mui/material';
+import PropTypes from "prop-types";
+import { Avatar, Box, Button } from "@mui/material";
 
 const Header = ({ src, title, children }) => {
   return (
@@ -7,18 +7,18 @@ const Header = ({ src, title, children }) => {
       <Button
         startIcon={<Avatar alt="logo" src={src} />}
         sx={{
-          fontSize: '1.1rem',
-          color: 'black',
+          fontSize: "1.2rem",
+          color: "black",
         }}
       >
         {title}
       </Button>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          alignItems: "center",
         }}
       >
         {children}
