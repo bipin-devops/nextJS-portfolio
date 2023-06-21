@@ -1,6 +1,6 @@
-import { Grid, Button, Chip, Stack } from '@mui/material';
-import { useRouter } from 'next/router';
-import PageDescription from '@/components/PageDescription';
+import { Grid, Button, Chip, Stack } from "@mui/material";
+import { useRouter } from "next/router";
+import PageDescription from "@/components/PageDescription";
 
 export default function AboutPage({ skills }) {
   const router = useRouter();
@@ -27,7 +27,7 @@ export default function AboutPage({ skills }) {
           <Button
             variant="contained"
             size="large"
-            onClick={() => router.push('/contact')}
+            onClick={() => router.push("/contact")}
           >
             Contact
           </Button>
@@ -49,11 +49,9 @@ export async function getStaticProps() {
   let skills = [];
 
   try {
-    const response = await fetch(
-      'https://my-skills-api-16a18-default-rtdb.firebaseio.com/skills.json'
-    );
+    const response = await fetch(process.env.NEXT_PUBLIC_SKILLS_URL);
     const data = await response.json();
-    skills = data.split(',');
+    skills = data.split(",");
   } catch (error) {
     console.error(error);
   }
